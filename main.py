@@ -23,7 +23,6 @@ def plot_criteria(noise, difference,
     plt.xlabel('Noise criteria')
     plt.xscale('log')
     plt.ylabel('Difference criteria')
-    plt.yscale('log')
     colors = np.random.rand(len(noise))
     plt.scatter(noise, difference, c=colors)
     plt.grid(linestyle='--')
@@ -33,6 +32,7 @@ def plot_criteria(noise, difference,
 
 if __name__ == '__main__':
     # Functions to work on
+
     function = lambda x: np.sin(x) + 0.5
     noisy_function = ssf.uniform_noise(function, amp=0.5)
 
