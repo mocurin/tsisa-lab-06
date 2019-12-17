@@ -21,12 +21,15 @@ def plot_results(x_source, y_source,
 def plot_criteria(noise, difference,
                   filename):
     plt.xlabel('Noise criteria')
+    plt.xscale('log')
     plt.ylabel('Difference criteria')
+    plt.yscale('log')
     colors = np.random.rand(len(noise))
     plt.scatter(noise, difference, c=colors)
     plt.grid(linestyle='--')
     plt.savefig(filename)
     plt.clf()
+
 
 if __name__ == '__main__':
     # Functions to work on
@@ -60,4 +63,6 @@ if __name__ == '__main__':
     y_filtered = ssf.mean_geom_sw(y_noisy, weights)
     plot_results(x_source, y_source, y_noisy, y_filtered, 'sin(x) + 0.5', 'results_5.png')
     plot_criteria(results['W'].values, results['D'].values, 'criteria_5.png')
+
+    print('Done!')
 
